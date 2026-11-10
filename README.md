@@ -92,3 +92,49 @@ If the article takes 30 minutes or longer to read:
 
 There aren't tests for this feature, so you'll have to rely on running the code
 in the browser to see if your implementation works!
+
+# Underreacted: Personal Blog
+
+A static React (Vite) site built to practice components, JSX and props.
+
+## Component Tree
+
+App → Header, About, ArticleList → Article
+
+## Getting Started
+
+1. Clone the repo: `git clone <your-repo-url>`
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm run dev`
+4. Run the tests: `npx vitest run`
+
+## Components
+
+| Component   | Props                          | Connected to               |
+|-------------|--------------------------------|----------------------------|
+| App         | none (imports data/blog.js)    | Header, About, ArticleList |
+| Header      | name                           | App                        |
+| About       | image, about                   | App                        |
+| ArticleList | posts                          | App, Article               |
+| Article     | title, date, preview, minutes  | ArticleList                |
+
+## Bonus Feature
+
+`Article` shows a "minutes to read" indicator: one ☕️ per 5 minutes (rounded up)
+for articles under 30 minutes, and one 🍱 per 10 minutes (rounded up) for
+articles of 30 minutes or more.
+
+## Screenshots
+
+![Blog homepage](./images/blog-home.png)
+![Tests passing](./images/tests-passing.png)
+
+## Testing
+
+Tests live in `src/__tests__/` and use Vitest with React Testing Library.
+They verify that each component renders the right elements from its props,
+including the default values for `image` (About) and `date` (Article).
+
+---
+
+(original lab instructions below)
